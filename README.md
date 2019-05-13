@@ -22,6 +22,22 @@
 
 - Ordner lcd: Ein Python script der jede 10 Sekunden die Datenbank abfragt und informationen auf ein LCD Display anzeigt
 
+- Scripts und binaries in systemd registrieren (`/lib/systemd/system/wetter-client.service`)
+### Beispiel
+```ini
+[Unit]
+Description=Client for fetching weather data
+After=multi-user.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python /home/pi/projekt/client/main.py
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+```
+
 ## Arduino
 Der Arduino code wartet auf Anfragen vom Raspberry Pi, liest Wetterdaten ein und sendet sie dann zurück
 
