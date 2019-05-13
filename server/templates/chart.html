@@ -1,0 +1,22 @@
+{{define "content"}}
+<section class="main">
+  <div class="selections no-sel">
+    <a href="?timespan=day" class="selection{{if eq .Filter "day"}} selected{{end}}">Tag</a>
+    <a href="?timespan=week" class="selection{{if eq .Filter "week"}} selected{{end}}">Woche</a>
+    <a href="?timespan=all" class="selection{{if eq .Filter "all"}} selected{{end}}">Alles</a>
+  </div>
+  <canvas id="graph"></canvas>
+</section>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js"></script>
+<script>
+  var data = JSON.parse({{.CalcJSObject}})
+  var ctx = document.getElementById("graph").getContext("2d");
+  var myChart = new Chart(ctx, {
+    type: "line",
+    data: data,
+    options: {
+      responsive: true
+    }
+  });
+</script>
+{{ end }}

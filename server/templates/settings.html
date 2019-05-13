@@ -1,0 +1,36 @@
+{{define "content"}}
+<section class="settings">
+  <div class="form">
+    <form action="settings/intervall" method="POST">
+      <fieldset>
+        <legend>Intervall</legend>
+        <select name="inter">
+          <option value="300">5min</option>
+          <option value="1800">30min</option>
+          <option value="3600">1h</option>
+          <option value="21600">6h</option>
+          <option value="86400">1 Tag</option>
+        </select>
+      </fieldset>
+      <input type="submit" value="Setzen" />
+    </form>
+    <form action="settings/db" method="POST">
+      <fieldset>
+        <legend>Datenbank</legend>
+        <label for="host">Server</label>
+        <input type="text" name="host" placeholder="localhost" />
+
+        <label for="host">Username</label>
+        <input type="text" name="user" placeholder="wetter" />
+
+        <label for="host">Password</label>
+        <input type="password" name="password" placeholder="password123" />
+
+        <label for="host">Datenbank</label>
+        <input type="text" name="database" placeholder="wetter" />
+      </fieldset>
+      <input type="submit" value="Übernehmen" />
+    </form>
+  </div>
+</section>
+{{ end }}

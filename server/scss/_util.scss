@@ -1,0 +1,91 @@
+.x-large {
+  font-size: 4rem;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+.large {
+  font-size: 3rem;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+.no-sel {
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.medium {
+  font-size: 1rem;
+}
+
+.lead {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.weight-low {
+  font-weight: 100;
+}
+
+.grey {
+  color: #888;
+}
+
+.right {
+  float: right;
+}
+
+.bg {
+  &-primary {
+    @include set-bg($primary-color);
+  }
+  &-light {
+    @include set-bg($light-color);
+    border: #ccc 1px solid;
+  }
+  &-dark {
+    @include set-bg($dark-color);
+  }
+  &-success {
+    @include set-bg($success-color);
+  }
+  &-danger {
+    @include set-bg($danger-color);
+  }
+  &-white {
+    @include set-bg(#fff);
+    border: #ccc 1px solid;
+  }
+}
+
+.btn {
+  display: inline-block;
+  background: $light-color;
+  color: #333;
+  padding: 0.3rem 1.3rem;
+  border: none;
+  cursor: pointer;
+  border-radius: 0.2rem;
+  font-size: 1rem;
+  margin: 0 0.25rem;
+  outline: none;
+  transition: all 0.2s ease-in;
+
+  &.btn-primary {
+    @include set-bg($primary-color);
+    color: #fff;
+    &:hover {
+      background: lighten($primary-color, 5%);
+    }
+  }
+}
+
+.dark-overlay {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.65);
+}

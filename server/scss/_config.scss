@@ -1,0 +1,18 @@
+$primary-color: #3498db;
+$dark-color: #343a40;
+$light-color: #f4f4f4;
+$danger-color: #dc3545;
+$success-color: #28a745;
+
+@function set-text-color($color) {
+  @if (lightness($color) >50) {
+    @return #333;
+  } @else {
+    @return #fff;
+  }
+}
+
+@mixin set-bg($color) {
+  background-color: $color;
+  color: set-text-color($color);
+}

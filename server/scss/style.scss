@@ -1,0 +1,420 @@
+@import "config";
+@import "util";
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: "Raleway", sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  background-color: #fff;
+  color: #333;
+}
+
+a {
+  text-decoration: none;
+  color: $primary-color;
+}
+
+li {
+  list-style: none;
+}
+
+img {
+  width: 100%;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.7rem 2rem;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  width: 100%;
+  opacity: 0.9;
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  ul {
+    display: flex;
+  }
+
+  a {
+    color: #fff;
+    padding: 0.45rem;
+    margin: 0 0.25rem;
+
+    &:hover {
+      color: #ecf0f1;
+    }
+  }
+}
+
+.landing {
+  position: relative;
+  background: url("../img/bg.jpg") no-repeat center center/cover;
+  height: 100vh;
+
+  &-inner {
+    margin: 150px 40px 0px;
+  }
+}
+
+.card {
+  border-radius: 0.4rem;
+  background-color: #ecf0f1;
+  box-shadow: 0 2px 6px 0 hsla(0, 0%, 0%, 0.2);
+  padding: 1rem 2rem;
+
+  &-inner {
+    h1 {
+      display: inline-block;
+    }
+  }
+}
+
+.board {
+  display: grid;
+  grid-gap: 40px;
+  grid-template-areas:
+    "state state state top-box-a"
+    "state state state top-box-a"
+    "state state state top-box-a"
+    "state state state top-box-b";
+}
+
+.state {
+  grid-area: state;
+
+  .card-inner {
+    display: grid;
+    grid-template-areas:
+      "blank temperature"
+      "blank card-right";
+    align-items: center;
+
+    .temperature {
+      grid-area: temperature;
+      font-size: 15vw;
+      font-family: Arial, Helvetica, sans-serif;
+      text-align: center;
+    }
+
+    .card-right {
+      grid-area: card-right;
+      color: #eee;
+      font-size: 0.9rem;
+      background-color: $primary-color;
+      border-radius: 50px 0 0.39rem 0;
+      margin: 0 -2rem -1rem 0;
+      padding: 0.6rem 2.1rem;
+      font-family: Roboto, sans-serif;
+    }
+  }
+}
+
+.top-box-a {
+  grid-area: top-box-a;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+
+  h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.4rem;
+  }
+
+  #ico {
+    display: none;
+    transform: rotate(-90deg);
+  }
+
+  .battery {
+    border: 3px solid #bdc3c7;
+    border-radius: 10px;
+    margin: 0 auto;
+    height: 100%;
+    width: 100px;
+    position: relative;
+    overflow: hidden;
+
+    &-inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 1.6rem;
+      font-family: Roboto;
+      vertical-align: -50%;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 80%;
+      background-color: #2ecc71;
+    }
+  }
+}
+
+.top-box-b {
+  grid-area: top-box-b;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 6vw;
+  transition: all 0.1s ease-in;
+  cursor: pointer;
+  color: $dark-color;
+
+  &:visited {
+    color: $dark-color;
+  }
+
+  &:hover {
+    color: #fff;
+    background-color: $primary-color;
+  }
+}
+
+.main {
+  height: 100vh;
+  margin-top: 140px;
+
+  padding: 0 10vw 40vh;
+
+  #graph {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.settings {
+  height: 100vh;
+  margin-top: 120px;
+
+  .form {
+    max-width: 600px;
+    padding: 10px 20px;
+    background: #f4f7f8;
+    margin: 10px auto;
+    padding: 20px;
+    background: #f4f7f8;
+    border-radius: 8px;
+
+    fieldset {
+      border: none;
+    }
+
+    legend {
+      font-size: 1.4em;
+      margin-bottom: 10px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    input[type="text"],
+    input[type="password"],
+    input[type="number"],
+    select {
+      font-family: Georgia, "Times New Roman", Times, serif;
+      background: rgba(255, 255, 255, 0.1);
+      border: none;
+      border-radius: 4px;
+      font-size: 15px;
+      margin: 0;
+      outline: 0;
+      padding: 10px;
+      width: 100%;
+      box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      background-color: #e8eeef;
+      color: #8a97a0;
+      -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
+      box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
+      margin-bottom: 10px;
+    }
+
+    input[type="text"]:focus,
+    input[type="password"]:focus,
+    input[type="number"]:focus,
+    select:focus {
+      background: #d2d9dd;
+    }
+
+    select {
+      -webkit-appearance: menulist-button;
+    }
+
+    input[type="submit"],
+    input[type="button"] {
+      position: relative;
+      display: block;
+      padding: 10px;
+      color: #fff;
+      margin: 0 auto;
+      background: $primary-color;
+      font-size: 18px;
+      text-align: center;
+      font-style: normal;
+      width: 100%;
+      border: none;
+      border-width: 1px 1px 3px;
+      margin-bottom: 10px;
+      cursor: pointer;
+      transition: all 0.1s ease-in;
+      border-radius: 10px;
+    }
+
+    input[type="submit"]:hover,
+    input[type="button"]:hover {
+      background: $dark-color;
+    }
+  }
+}
+
+@media (max-width: 900px) {
+  .board {
+    grid-template-areas:
+      "state state state"
+      "top-box-a top-box-a top-box-b";
+  }
+
+  .top-box-a {
+    flex-direction: row;
+    align-items: center;
+
+    h2 {
+      margin-bottom: 0;
+      margin-right: 1rem;
+    }
+
+    .battery {
+      margin: 0;
+      height: 100%;
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+
+      &-inner {
+        width: 80%;
+        height: 100%;
+      }
+    }
+  }
+}
+
+.selections {
+  display: flex;
+  margin: 0 40px 40px;
+  justify-content: space-between;
+
+  .selection {
+    width: 100%;
+    text-align: center;
+    border-top: 1px solid $primary-color;
+    border-bottom: 1px solid $primary-color;
+    cursor: pointer;
+    color: $primary-color;
+
+    &:first-child {
+      border: 1px solid $primary-color;
+      border-top-left-radius: 0.7rem;
+      border-bottom-left-radius: 0.7rem;
+    }
+
+    &:last-child {
+      border: 1px solid $primary-color;
+      border-top-right-radius: 0.7rem;
+      border-bottom-right-radius: 0.7rem;
+    }
+
+    &.selected {
+      background-color: $primary-color;
+      color: #fff;
+    }
+
+    &:hover {
+      background-color: $dark-color;
+      border-color: $dark-color;
+      color: #fff;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  html {
+    font-size: 12px;
+  }
+
+  .x-large {
+    font-size: 3rem;
+  }
+
+  .state {
+    .card-inner {
+      grid-template-areas:
+        "blank temperature"
+        "card-right card-right";
+
+      .card-right {
+        border-radius: 0 0 0.39rem 0.39rem;
+        margin: 0 -2rem -1rem;
+      }
+    }
+  }
+
+  .board {
+    grid-gap: 10px;
+  }
+
+  .navbar {
+    display: block;
+    h1 {
+      font-size: 1.4rem;
+      margin-bottom: 0.5rem;
+    }
+
+    ul {
+      display: block;
+      border-top: 1px solid $light-color;
+    }
+
+    li {
+      margin-top: 0.4rem;
+    }
+
+    a {
+      font-size: 0.9rem;
+      margin: 0;
+      padding: 0.3rem 0;
+    }
+  }
+
+  .top-box-a {
+    #ico {
+      display: inline;
+    }
+
+    #txt {
+      display: none;
+    }
+
+    .battery {
+      &-inner {
+        font-size: 1rem;
+      }
+    }
+  }
+}

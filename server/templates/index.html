@@ -1,0 +1,56 @@
+{{define "content"}}
+<section class="landing">
+  <div class="dark-overlay">
+    <div class="landing-inner">
+      <div class="board no-sel">
+        <div class="card state">
+          <div class="card-inner">
+            {{if .Humidity}}
+            <img src="static/img/static/{{.WeatherIcon}}" />
+            <h1 class="temperature">
+              {{printf "%.1f" .Temperature}}
+              <span class="x-large weight-low grey">°C</span>
+            </h1>
+            <div class="card-right">
+              <h2>
+                <i class="fas fa-tint"></i> {{.Humidity}}
+                <span class="medium weight-low">%</span>
+                &nbsp;&nbsp;
+                <i class="fas fa-sun"></i>
+                &nbsp;
+                {{.Brightness}}<span class="medium weight-low">%</span>
+                <div class="right">
+                  {{if or (ge .TimeOffset.Hours 1.0)}}
+                  <span class="weight-low medium">vor </span>
+                  {{printf "%.0f" .TimeOffset.Hours}}
+                  <span class="weight-low medium">h</span>
+                  {{else if or (ge .TimeOffset.Minutes 1.0)}}
+                  <span class="weight-low medium">vor </span>
+                  {{printf "%.0f" .TimeOffset.Minutes}}
+                  <span class="weight-low medium">m</span>
+                  {{ end }}
+                </div>
+              </h2>
+            </div>
+            {{else}}
+            <h1>Keine Daten</h1>
+            {{ end }}
+          </div>
+        </div>
+        <div class="card top-box-a">
+          <h2 class="weight-low" id="txt">Batterie</h2>
+          <h2 class="weight-low" id="ico">
+            <i class="fas fa-battery-half"></i>
+          </h2>
+          <div class="battery">
+            <div class="battery-inner">{{.Battery}}V</div>
+          </div>
+        </div>
+        <a href="chart" class="card top-box-b">
+          <i class="fas fa-chart-line"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+{{ end }}

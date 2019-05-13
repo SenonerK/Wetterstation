@@ -1,0 +1,48 @@
+{{ define "base" }}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Raleway"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.css"
+    />
+    <link rel="stylesheet" href="static/css/style.min.css" />
+    <title>Tschuggwetter</title>
+  </head>
+  <body>
+    <nav class="navbar bg-dark">
+      <a href="/"
+        ><h1 class="no-sel">
+          <i style="color:#2ecc71;" class="fas fa-cloud-sun"></i> Tschuggwetter
+        </h1></a
+      >
+      <ul>
+        <li>
+          <a href="settings"><i class="fas fa-cog"></i> Einstellungen</a>
+        </li>
+        <li>
+          <a href="chart"><i class="fas fa-chart-bar"></i> Statistiken</a>
+        </li>
+      </ul>
+    </nav>
+    {{template "content" .}}
+  </body>
+</html>
+{{ end }}
